@@ -4,7 +4,8 @@ import time
 
 from PIL import Image, ImageDraw, ImageFont
 
-font = ImageFont.truetype(font="C:\WINDOWS\Fonts\Arial.ttf", size=100)
+# font = ImageFont.truetype(font="C:\WINDOWS\Fonts\Arial.ttf", size=100)
+font = ImageFont.truetype(font="/Library/Fonts/Arial.ttf", size=48)
 
 
 def date_to_timestamp(date, format_string="%Y-%m-%d %H:%M:%S"):
@@ -27,7 +28,7 @@ def add_text_to_image(image, text, font=font):
     image_draw = ImageDraw.Draw(text_overlay)
     text_size_x, text_size_y = image_draw.textsize(text, font=font)
     # 设置文本文字位置
-    text_xy = (rgba_image.size[0] - text_size_x, rgba_image.size[1] - text_size_y)
+    text_xy = (rgba_image.size[0] - text_size_x - 10, rgba_image.size[1] - text_size_y - 10)
     # 设置文本颜色和透明度
     image_draw.text(text_xy, text, font=font, fill=(200, 200, 200, 200))
     image_with_text = Image.alpha_composite(rgba_image, text_overlay)
