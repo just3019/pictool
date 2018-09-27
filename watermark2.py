@@ -25,7 +25,7 @@ def add_text_to_image(image, text, font=font):
     # 设置文本文字位置
     text_xy = (rgba_image.size[0] - text_size_x - 10, rgba_image.size[1] - text_size_y - 10)
     # 设置文本颜色和透明度
-    image_draw.text(text_xy, text, font=font, fill=(255, 255, 255, 100))
+    image_draw.text(text_xy, text, font=font, fill=(255, 255, 255, 255))
     image_with_text = Image.alpha_composite(rgba_image, text_overlay)
     return image_with_text
 
